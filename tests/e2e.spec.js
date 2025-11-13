@@ -7,12 +7,8 @@ const { CheckoutStepOnePage } = require('../page-objects/checkout-step-one-page'
 const { CheckoutStepTwoPage } = require('../page-objects/checkout-step-two-page');
 const { CheckoutCompletePage } = require('../page-objects/checkout-complete-page');
 
-const delay = () => new Promise(resolve => {
-    setTimeout(resolve, 5000);
-})
-
 // Описываем наш набор тестов
-test.describe('Авторизация на Sauce Demo', () => {
+test.describe(' Автоматизация E2E сценария покупки с использование паттерна Page Object Model', () => {
     // Создаем тест-кейс
     test.only('Сквозной сценарий', async ({ page }) => {
         // 1. Открыть страницу логина
@@ -74,7 +70,5 @@ test.describe('Авторизация на Sauce Demo', () => {
 
         const isButtonVisible = await page.isVisible(checkoutCompletePage.backButton);
         expect(isButtonVisible).toBe(true);
-
-        await delay();
     });
 });
